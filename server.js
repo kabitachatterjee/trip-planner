@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // need to add this so that we can accept request payloads from Angular
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 var controllers = require('./controllers');
 

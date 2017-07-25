@@ -24,6 +24,7 @@ function show(req, res) {
 function create(req, res) {
   // send back all our trips as JSON objects
   var newTrip = new Trip(req.body);
+  console.log(newTrip);
     newTrip.save(function(err,trip){
       if(err){
         console.log("post error: " + err);

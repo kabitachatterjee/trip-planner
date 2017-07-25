@@ -23,12 +23,15 @@
       <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
         <h1>Welcome to trip planner</h1>
         <p>Your travel companion!!</p>
+        <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
+          <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name">
+          <input type="text" class="form-control" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt">
+          <input type="text" class="form-control" placeholder="To date" ng-model="tripsIndexCtrl.newTrip.end_dt">
+          <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
+          <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
+          <input type="submit" name="submit" value="Submit">
+        </form>
 
-        <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name">
-        <input type="text" class="form-control" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt">
-        <input type="text" class="form-control" placeholder="To date" ng-model="tripsIndexCtrl.newTrip.end_dt">
-        <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
-        <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
         <p><b>{{tripsIndexCtrl.newTrip.name}}</b></p>
         <p>{{tripsIndexCtrl.newTrip.start_dt}} to {{tripsIndexCtrl.newTrip.end_dt}}</p>
         <img src="{{tripsIndexCtrl.newTrip.image}}">
@@ -39,6 +42,7 @@
             <p>{{trip.start_dt}} to {{trip.end_dt}}</p>
             <img src="{{trip.image}}">
             <p>Must See: {{trip.main_attr}}
+              <button class='btn btn-danger' ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
          </div>
       </div>
     </div>
