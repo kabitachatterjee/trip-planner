@@ -8,14 +8,32 @@ function index(req, res) {
   });
 
 }
+
+function show(req, res) {
+  // find one trip by its id
+  console.log('trip show', req.params);
+  Trip.findById(req.params.id, function(err, trip){
+    if (err) {
+      console.log("index error: " + err);
+      res.sendStatus(500);
+    }
+    res.json(trip);
+  });
+}
+
 function create(req, res) {
   // send back all our trips as JSON objects
-
+  var newTrip = new Trip(req.body);
+    newTrip.save(function(err,trip){
+      if(err){
+        console.log("post error: " + err);
+        res.sendStatus(500);
+      }
+    console.log("Success");
+    res.json(newTrip);
+  });
 }
-function show(req, res) {
-  // send back all our trips as JSON objects
 
-}
 function destroy(req, res) {
   // send back all our trips as JSON objects
 
