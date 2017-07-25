@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="trip-planner">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +20,18 @@
   </head>
   <body>
     <div class="jumbotron">
-      <div class="container">
+      <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
         <h1>Welcome to trip planner</h1>
         <p>Your travel companion!!</p>
+
+        <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name">
+        <input type="text" class="form-control" placeholder="From" ng-model="tripsIndexCtrl.newTrip.start_dt">
+        <p><b>{{tripsIndexCtrl.newTrip.name}}</b></p>
+        <p>{{tripsIndexCtrl.newTrip.start_dt}} to {{tripsIndexCtrl.newTrip.end_dt}}</p>
+        <img src="{{tripsIndexCtrl.newTrip.image}}">
+        <p>Must See: {{tripsIndexCtrl.newTrip.main_attr}}
+
+
       </div>
     </div>
   </body>

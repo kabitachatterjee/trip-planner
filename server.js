@@ -24,7 +24,18 @@ var controllers = require('./controllers');
  * HTML Endpoints
  */
 
- app.get('/', function homepage(req, res) {
+//  app.get('/', function homepage(req, res) {
+//   res.sendFile(__dirname + '/views/index.html');
+// });
+
+app.get('/templates/:name', function templates(req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
+});
+
+// ALL OTHER ROUTES (ANGULAR HANDLES)
+// redirect all other paths to index
+app.get('*', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
