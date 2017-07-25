@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//var controllers = require('./controllers');
+var controllers = require('./controllers');
 
 
 /**********
