@@ -10,6 +10,9 @@ var bodyParser = require('body-parser');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// need to add this so that we can accept request payloads from Angular
+//app.use(bodyParser.json());
+
 var controllers = require('./controllers');
 
 
@@ -21,9 +24,9 @@ var controllers = require('./controllers');
  * HTML Endpoints
  */
 
- app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+ app.get('/', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
 /*
  * JSON API Endpoints
