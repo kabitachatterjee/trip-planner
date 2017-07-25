@@ -29,6 +29,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * JSON API Endpoints
  */
 
+ app.get("/api", controllers.api.index);
+ app.get("/api/trips", controllers.trips.index);
+ app.get("/api/trips/:id", controllers.trips.show);
+ app.post("/api/trips", controllers.trips.create);
+ app.put("/api/trips/:id", controllers.trips.update);
+ app.delete("/api/trips/:id", controllers.trips.destroy);
 
 
 
