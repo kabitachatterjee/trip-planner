@@ -10,7 +10,10 @@ var bodyParser = require('body-parser');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//var controllers = require('./controllers');
+// need to add this so that we can accept request payloads from Angular
+//app.use(bodyParser.json());
+
+var controllers = require('./controllers');
 
 
 /**********
@@ -21,14 +24,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * HTML Endpoints
  */
 
- app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+ app.get('/', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
 /*
  * JSON API Endpoints
  */
 
+ app.get("/api", controllers.api.index);
+ app.get("/api/trips", controllers.trips.index);
+ app.get("/api/trips/:id", controllers.trips.show);
+ app.post("/api/trips", controllers.trips.create);
+ app.put("/api/trips/:id", controllers.trips.update);
+ app.delete("/api/trips/:id", controllers.trips.destroy);
 
 
 
