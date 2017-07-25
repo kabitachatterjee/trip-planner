@@ -25,13 +25,21 @@
         <p>Your travel companion!!</p>
 
         <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name">
-        <input type="text" class="form-control" placeholder="From" ng-model="tripsIndexCtrl.newTrip.start_dt">
+        <input type="text" class="form-control" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt">
+        <input type="text" class="form-control" placeholder="To date" ng-model="tripsIndexCtrl.newTrip.end_dt">
+        <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
+        <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
         <p><b>{{tripsIndexCtrl.newTrip.name}}</b></p>
         <p>{{tripsIndexCtrl.newTrip.start_dt}} to {{tripsIndexCtrl.newTrip.end_dt}}</p>
         <img src="{{tripsIndexCtrl.newTrip.image}}">
         <p>Must See: {{tripsIndexCtrl.newTrip.main_attr}}
 
-
+          <div ng-repeat="trip in tripsIndexCtrl.trips">
+            <p><b>{{trip.name}}</b></p>
+            <p>{{trip.start_dt}} to {{trip.end_dt}}</p>
+            <img src="{{trip.image}}">
+            <p>Must See: {{trip.main_attr}}
+         </div>
       </div>
     </div>
   </body>
