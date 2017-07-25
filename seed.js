@@ -13,7 +13,7 @@ var tripList = [
               photo_link: "http://www.presidio.gov/trails/lobos-creek-valley-trail",
               image: "http://www.tapeciarnia.pl/tapety/normalne/210989_lato_las_potok_drozka.jpg",
               main_attr: "Going to the sun, Grinnell Glacier, Highline trail, Logan Pass, Iceberg Lake trail"
-              }
+            }
                 ];
 
 Trip.remove({}, function(err, trips) {

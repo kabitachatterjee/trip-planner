@@ -35,7 +35,15 @@ function create(req, res) {
 }
 
 function destroy(req, res) {
-  // send back all our trips as JSON objects
+  console.log("trip_id:",req.params.id);
+  var tripID = req.params.id;
+  Trip.findByIdAndRemove({"_id": tripID}, function(err, trip) {
+    if (err) {
+      console.log("delete errror");
+    }
+    console.log("deleted trip successfully");
+    res.json(trip);
+  });
 
 }
 function update(req, res) {
