@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // need to add this so that we can accept request payloads from Angular
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 var controllers = require('./controllers');
 
@@ -27,6 +27,17 @@ var controllers = require('./controllers');
  app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/templates/:name', function templates(req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
+});
+
+// ALL OTHER ROUTES (ANGULAR HANDLES)
+// redirect all other paths to index
+// app.get('*', function homepage (req, res) {
+//   res.sendFile(__dirname + '/views/index.html');
+// });
 
 /*
  * JSON API Endpoints
