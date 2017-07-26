@@ -2,8 +2,30 @@ console.log("app.js is linked");
 
 angular
   .module('trip-planner', [])
+  // .config(config)
   .controller('TripsIndexController', TripsIndexController);
+
 TripsIndexController.$inject = ['$http'];
+
+// config.$inject = ['$routeProvider', '$locationProvider'];
+// function config(   $routeProvider,  $locationProvider   ) {
+//   $routeProvider
+//     .when('/', {
+//       template: 'This template will show the homepage, with all trips!',
+//       controllerAs: 'tripsIndexCtrl',
+//       controller: 'TripsIndexController'
+//     })
+//     .when('/trips/:id', {
+//       template: 'This template will show a trip!',
+//       controllerAs: 'tripsShowCtrl',
+//       controller: 'TripsShowController'
+//     });
+//
+//   $locationProvider.html5Mode({
+//     enabled: true,
+//     requireBase: false
+//   });
+// }
   function TripsIndexController ($http) {
     var vm = this;
     vm.newTrip;
@@ -44,6 +66,18 @@ TripsIndexController.$inject = ['$http'];
                               });
                             }
 
+vm.showTrip = function (trip) {
+  console.log("clicked to view" + trip);
+
+                                  $http({
+                                  method: 'GET',
+                                  url: '/api/trips/'+ trip._id
+                                  }).then(function successCallback(json) {
+                                  }, function errorCallback(response) {
+                                    console.log('There was an error deleting the data', response);
+                                  });
+                                }
+
 vm.deleteTrip = function (trip) {
   console.log("clicked to delete" + trip);
 
@@ -67,20 +101,25 @@ vm.deleteTrip = function (trip) {
                                       url: '/api/trips/'+ trip._id,
                                       data: trip
                                       }).then(function successCallback(json) {
-                                // var updatedTripId = trip._id;
-                                // console.log(updatedTripId);
-                                // vm.trips = vm.trips.map(function(t, i) {
-                                //   if (t._id === updatedTripId) {
-                                //       t.name = trip.name;
-                                //       t.start_dt = trip.start_dt;
-                                //       t.end_dt = trip.end_dt;
-                                //       t.image = trip.image;
-                                //       t.main_attr = trip.main_attr;
-                                //       }
-                                //     return t;
                                   }, function errorCallback(response) {
                                 console.log('There was an error updating the data', response);
                                   });
 
                               }
+
+                              vm.showAdvanced = function(ev) {
+                                  $mdDialog.show({
+                                    controller: DialogController,
+                                    templateUrl: 'dialog1.tmpl.html',
+                                    parent: angular.element(document.body),
+                                    targetEvent: ev,
+                                    clickOutsideToClose:true,
+                                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                                  })
+                                  .then(function(answer) {
+                                    $scope.status = 'You said the information was "' + answer + '".';
+                                  }, function() {
+                                    $scope.status = 'You cancelled the dialog.';
+                                  });
+                                };
 }
