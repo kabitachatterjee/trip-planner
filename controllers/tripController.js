@@ -48,8 +48,23 @@ function destroy(req, res) {
 
 }
 function update(req, res) {
-  // send back all our trips as JSON objects
-
+  var trip = Trip.findById(req.params.id, function(err, trip) {
+    if (err) {
+      console.log('error, trip not found');
+    }
+    // creating an object "trip" which will capture any form-data given OR hold onto
+    // the trip's existing information for that field
+    trip.name = req.body.name || trip.name;
+    trip.start_dt = req.body.start_dt || trip.start_dt;
+    trip.end_dt = req.body.end_dt || trip.end_dt;
+    trip.image = req.body.image || trip.image;
+    trip.main_attr = req.body.main_attr || trip.main_attr;
+    // saving the trip object with updated fields & responding with json data object
+    trip.save(function(err, savedTrip) {
+      console.log("Updated successfully");
+      res.json(savedTrip)
+    });
+  });
 }
 
 

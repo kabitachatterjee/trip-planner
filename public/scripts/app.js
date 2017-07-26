@@ -59,4 +59,28 @@ vm.deleteTrip = function (trip) {
                                   });
                                 }
 
+  vm.editTrip = function (trip) {
+  console.log("clicked to edit" + trip);
+
+                                $http({
+                                      method: 'PUT',
+                                      url: '/api/trips/'+ trip._id,
+                                      data: trip
+                                      }).then(function successCallback(json) {
+                                // var updatedTripId = trip._id;
+                                // console.log(updatedTripId);
+                                // vm.trips = vm.trips.map(function(t, i) {
+                                //   if (t._id === updatedTripId) {
+                                //       t.name = trip.name;
+                                //       t.start_dt = trip.start_dt;
+                                //       t.end_dt = trip.end_dt;
+                                //       t.image = trip.image;
+                                //       t.main_attr = trip.main_attr;
+                                //       }
+                                //     return t;
+                                  }, function errorCallback(response) {
+                                console.log('There was an error updating the data', response);
+                                  });
+
+                              }
 }
