@@ -73,9 +73,9 @@ passport.use(new LocalStrategy(
    		}
    	});
    });
-  }));
+}));
 
-  passport.serializeUser(function(user, done) {
+passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
@@ -93,6 +93,7 @@ router.post('/login',
   });
 
 router.get('/logout', function(req, res){
+  console.log(req.user);
 	req.logout();
 
 	req.flash('success_msg', 'You are logged out');

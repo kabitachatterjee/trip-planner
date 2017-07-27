@@ -24,6 +24,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // need to add this so that we can accept request payloads from Angular
 app.use(bodyParser.json());
+app.use(cookieParser('iloveicecream'));
+
+app.use(session({ secret: 'iloveicecream',
+                 resave: false,
+  saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 var controllers = require('./controllers');
 
@@ -52,6 +61,21 @@ app.get('/templates/:name', function templates(req, res) {
 // app.get('*', function homepage (req, res) {
 //   res.sendFile(__dirname + '/views/index.html');
 // });
+
+app.use('/users', users);
+
+// ---- Anything above is public ------
+app.use(function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('/users/login');
+	}
+});
+// ----- Anything below requires authenticated user ----
+
+app.use('/', routes);
 
 /*
  * JSON API Endpoints
@@ -86,10 +110,6 @@ app.use(expressValidator({
   }
 }));
 
-
-app.use(session({ secret: 'iloveicecream' }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
 
 // Global Vars
@@ -100,10 +120,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
-
-
-app.use('/', routes);
-app.use('/users', users);
 
 
  /**********

@@ -2,7 +2,6 @@ console.log("app.js is linked");
 
 angular
   .module('trip-planner', [])
-  // .config(config)
   .config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('{[{');
   $interpolateProvider.endSymbol('}]}');
@@ -11,43 +10,14 @@ angular
 
 TripsIndexController.$inject = ['$http'];
 
-// config.$inject = ['$routeProvider', '$locationProvider'];
-// function config(   $routeProvider,  $locationProvider   ) {
-//   $routeProvider
-//     .when('/', {
-//       template: 'This template will show the homepage, with all trips!',
-//       controllerAs: 'tripsIndexCtrl',
-//       controller: 'TripsIndexController'
-//     })
-//     .when('/trips/:id', {
-//       template: 'This template will show a trip!',
-//       controllerAs: 'tripsShowCtrl',
-//       controller: 'TripsShowController'
-//     });
-//
-//   $locationProvider.html5Mode({
-//     enabled: true,
-//     requireBase: false
-//   });
-// }
   function TripsIndexController ($http) {
     var vm = this;
-    vm.newTrip;
-
-    // vm.newTrip = {
-    //             name: "London",
-    //             start_dt: "09/05/2017",
-    //             end_dt: "09/12/2017",
-    //             photo_link: "http://www.presidio.gov/trails/lobos-creek-valley-trail",
-    //             image: "https://media.timeout.com/images/100644443/image.jpg",
-    //             main_attr: "British Meuseum, Big Ben, London Eye"
-    //           };
-
+    vm.user = [];
+    vm.newTrip = {user: vm.user };
               $http({
                   method: 'GET',
                   url: '/api/trips'
                 }).then(function successCallback(response) {
-                  // what is the structure of this response?
                   console.log(response.data);
                   vm.trips = response.data;
                 }, function errorCallback(response) {
@@ -55,7 +25,9 @@ TripsIndexController.$inject = ['$http'];
                 });
 
   vm.createTrip = function () {
+    //vm.newTrip.user = user.id;
     //e.preventDefault();
+    //vm.user.push(user.id)
                               $http({
                                 method: 'POST',
                                 url: '/api/trips',
@@ -111,19 +83,4 @@ vm.deleteTrip = function (trip) {
 
                               }
 
-                              vm.showAdvanced = function(ev) {
-                                  $mdDialog.show({
-                                    controller: DialogController,
-                                    templateUrl: 'dialog1.tmpl.html',
-                                    parent: angular.element(document.body),
-                                    targetEvent: ev,
-                                    clickOutsideToClose:true,
-                                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-                                  })
-                                  .then(function(answer) {
-                                    $scope.status = 'You said the information was "' + answer + '".';
-                                  }, function() {
-                                    $scope.status = 'You cancelled the dialog.';
-                                  });
-                                };
 }
