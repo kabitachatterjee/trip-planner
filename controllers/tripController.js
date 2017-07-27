@@ -3,7 +3,16 @@ var Trip = db.Trip;
 // GET /api/trips
 function index(req, res) {
   // send back all our trips as JSON objects
+  console.log(req.user._id);
   Trip.find({}, function(err, allTrips) {
+    console.log(allTrips);
+    allTrips = allTrips.filter(function(el){
+      console.log(el.user[0]);
+                    //return el.user[0] === req.user['_id']
+                    return el.end_dt > Date.now();
+                    //return el.end_dt > Date.now();
+                    //return el.user.length > 0;
+                    });
     res.json(allTrips);
   });
 

@@ -14,15 +14,14 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Startegy;
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/loginapp');
-//var db = mongoose.connection;
+
 
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// need to add this so that we can accept request payloads from Angular
+
 app.use(bodyParser.json());
 app.use(cookieParser('iloveicecream'));
 
@@ -32,6 +31,16 @@ app.use(session({ secret: 'iloveicecream',
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(flash());
+
+// Global Vars
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
 
 
 var controllers = require('./controllers');
@@ -109,17 +118,6 @@ app.use(expressValidator({
     };
   }
 }));
-
-app.use(flash());
-
-// Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
-});
 
 
  /**********

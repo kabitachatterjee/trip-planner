@@ -12,22 +12,20 @@ TripsIndexController.$inject = ['$http'];
 
   function TripsIndexController ($http) {
     var vm = this;
-    vm.user = [];
-    vm.newTrip = {user: vm.user };
+    //vm.user = user.id;
               $http({
                   method: 'GET',
                   url: '/api/trips'
                 }).then(function successCallback(response) {
                   console.log(response.data);
-                  vm.trips = response.data;
+                  data = response.data;
+                  vm.trips = data;
+                  //vm.trips = data;
                 }, function errorCallback(response) {
                   console.log('There was an error getting the data', response);
                 });
 
   vm.createTrip = function () {
-    //vm.newTrip.user = user.id;
-    //e.preventDefault();
-    //vm.user.push(user.id)
                               $http({
                                 method: 'POST',
                                 url: '/api/trips',
