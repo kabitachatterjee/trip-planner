@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="trip-planner">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>trip-planner</title>
-
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/styles.css">
-
-    <!-- VENDOR SCRIPTS -->
-    <script src="/vendor/angular.min.js"></script>
-    <script src="/vendor/angular-ui-router.min.js"></script>
-
-    <!-- APPLICATION SCRIPTS -->
-    <script src="/scripts/app.js"></script>
-
-  </head>
-  <body>
     <div class="jumbotron">
       <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
         <h1>Welcome to trip planner</h1>
@@ -36,15 +15,15 @@
         <h3> Upcoming Trips </h3>
 
           <div ng-repeat="trip in tripsIndexCtrl.trips">
-            <p><b>{{trip.name}}</b></p>
+            <p><b>{[{trip.name}]}</b></p>
             <button class='btn btn-info' ng-click="tripsIndexCtrl.showTrip(trip)">View</button>
             <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
-            <p>{{trip.start_dt}} to {{trip.end_dt}}</p>
+            <p>{[{trip.start_dt}]} to {[{trip.end_dt}]}</p>
             <input ng-show="editing" ng-model="trip.start_dt" type="text" class="form-control input-md">
             <input ng-show="editing" ng-model="trip.end_dt" type="text" class="form-control input-md">
-            <img src="{{trip.image}}">
+            <img ng-src="{[{trip.image}]}">
             <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
-            <p>Must See: {{trip.main_attr}}
+            <p>Must See: {[{trip.main_attr}]} </p>
               <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
               <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit</button>
               <button class='btn btn-success' ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
@@ -55,15 +34,3 @@
   </div>
 
 </div>
-
-    <!-- Angular Material requires Angular.js Libraries -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-
-  <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-  </body>
-
-</html>

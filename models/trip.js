@@ -11,7 +11,12 @@ var TripSchema = new Schema({
     type: String,
     default:"http://goldenhillsrealestate.com/files/2010/11/Stevens-trail-sign-2.jpg"
   },
-  created_at: {
+  user: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  // user: String,
+created_at: {
     type: Date,
     default: Date.now
   }
