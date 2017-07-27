@@ -3,6 +3,10 @@ console.log("app.js is linked");
 angular
   .module('trip-planner', [])
   // .config(config)
+  .config(function($interpolateProvider) {
+  $interpolateProvider.startSymbol('{[{');
+  $interpolateProvider.endSymbol('}]}');
+})
   .controller('TripsIndexController', TripsIndexController);
 
 TripsIndexController.$inject = ['$http'];

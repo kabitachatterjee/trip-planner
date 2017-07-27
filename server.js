@@ -38,9 +38,9 @@ var controllers = require('./controllers');
  * HTML Endpoints
  */
 
- app.get('/', function homepage(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
-});
+//  app.get('/', function homepage(req, res) {
+//   res.sendFile(__dirname + '/views/index.html');
+// });
 
 app.get('/templates/:name', function templates(req, res) {
   var name = req.params.name;

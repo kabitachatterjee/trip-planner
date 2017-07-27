@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html ng-app="trip-planner">
   <head>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
@@ -9,10 +9,16 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/styles/styles.css">
+<!-- VENDOR SCRIPTS -->
+<script src="/vendor/angular.min.js"></script>
+<script src="/vendor/angular-ui-router.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <title>Login App</title>
+<!-- APPLICATION SCRIPTS -->
+<script src="/scripts/app.js"></script>
+    <title>Trip planner App</title>
   </head>
   <body>
     <div class="container">
@@ -28,7 +34,7 @@
             {{/if}}
           </ul>
         </nav>
-        <h3 class="text-muted">Login App</h3>
+        <h3 class="text-muted">Trip planner App</h3>
       </div>
 
 
@@ -52,7 +58,7 @@
       </div>
 
       <footer class="footer">
-        <p>&copy; 2017 LoginApp, Inc.</p>
+        <p>&copy; 2017 Trip planner App, Inc.</p>
       </footer>
 
     </div> <!-- /container -->
