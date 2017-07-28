@@ -7,11 +7,7 @@ function index(req, res) {
   Trip.find({}, function(err, allTrips) {
     console.log(allTrips);
     allTrips = allTrips.filter(function(el){
-      console.log(el.user[0]);
-                    //return el.user[0] === req.user['_id']
-                    return el.end_dt > Date.now();
-                    //return el.end_dt > Date.now();
-                    //return el.user.length > 0;
+                    return String(el.user[0]) === String(req.user['_id'])
                     });
     res.json(allTrips);
   });

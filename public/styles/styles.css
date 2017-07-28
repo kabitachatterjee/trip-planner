@@ -2,3 +2,14 @@ img {
   height:100px;
   width: 200px;
 }
+.nav-wrapper {
+  background-color: #26a69a;
+  position: fixed;
+  z-index: 1;
+}
+.card-image img {
+  height: 300px;
+}
+.parallax img{
+  display: unset;
+}

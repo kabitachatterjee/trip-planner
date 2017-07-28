@@ -1,5 +1,5 @@
 console.log("app.js is linked");
-
+ 
 angular
   .module('trip-planner', [])
   .config(function($interpolateProvider) {

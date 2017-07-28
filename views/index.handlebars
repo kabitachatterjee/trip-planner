@@ -14,7 +14,35 @@
 
         <h3> Upcoming Trips </h3>
 
-          <div ng-repeat="trip in tripsIndexCtrl.trips">
+
+
+<div ng-repeat="trip in tripsIndexCtrl.trips">
+      <div class="row">
+            <div class="col s12 m7">
+              <div class="card">
+                <div class="card-image">
+                  <img ng-src="{[{trip.image}]}">
+                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
+                  <span class="card-title">{[{trip.name}]}</span>
+                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+                </div>
+                <div class="card-content">
+                  <p>{[{trip.start_dt}]} to {[{trip.end_dt}]}</p>
+                  <input ng-show="editing" ng-model="trip.start_dt" type="text" class="form-control input-md">
+                  <input ng-show="editing" ng-model="trip.end_dt" type="text" class="form-control input-md">
+                  <p>Must See: {[{trip.main_attr}]} </p>
+                  <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
+                </div>
+                <div class="card-action">
+                  <button class="waves-effect waves-light btn" ng-hide="editing" ng-click="editing = true">Edit</button>
+                  <button class="waves-effect waves-light btn" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
+                  <button class="waves-effect waves-light btn right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div ng-repeat="trip in tripsIndexCtrl.trips">
             <p><b>{[{trip.name}]}</b></p>
             <button class='btn btn-info' ng-click="tripsIndexCtrl.showTrip(trip)">View</button>
             <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
@@ -28,7 +56,7 @@
               <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit</button>
               <button class='btn btn-success' ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
               <button class='btn btn-danger' ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
-         </div>
+         </div> -->
 
 
   </div>
