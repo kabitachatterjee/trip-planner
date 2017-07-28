@@ -13,3 +13,8 @@ img {
 .parallax img{
   display: unset;
 }
+.add {
+  width: 50%;
+  text-align: right;
+  padding: 50px;
+}
