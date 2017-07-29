@@ -3,34 +3,54 @@
       <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
         <h1>Welcome to trip planner</h1>
         <p>Your travel companion!!</p>
-        <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
-          <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name">
-          <input type="text" class="form-control" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt">
-          <input type="text" class="form-control" placeholder="To date" ng-model="tripsIndexCtrl.newTrip.end_dt">
-          <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
-          <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
-          <input type="submit" name="submit" value="Submit">
-        </form>
+        <div class="add input-field">
+          <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
+            <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name">
+            <datepicker datepicker-show="{{visibility}}">
+            <input type="text" class="angular-datepicker-input" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt">
+          </datepicker>
+          <datepicker>
+            <input type="text" class="angular-datepicker-input" placeholder="To date" ng-model="tripsIndexCtrl.newTrip.end_dt">
+          </datepicker>
+            <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
+            <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
+            <button class="waves-effect waves-light btn orange darken-4" type="submit">Add Trip</button>
+          </form>
+        </div>
+
+
+
+
 
         <h3> Upcoming Trips </h3>
 
-          <div ng-repeat="trip in tripsIndexCtrl.trips">
-            <p><b>{[{trip.name}]}</b></p>
-            <button class='btn btn-info' ng-click="tripsIndexCtrl.showTrip(trip)">View</button>
-            <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
-            <p>{[{trip.start_dt}]} to {[{trip.end_dt}]}</p>
-            <input ng-show="editing" ng-model="trip.start_dt" type="text" class="form-control input-md">
-            <input ng-show="editing" ng-model="trip.end_dt" type="text" class="form-control input-md">
-            <img ng-src="{[{trip.image}]}">
-            <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
-            <p>Must See: {[{trip.main_attr}]} </p>
-              <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
-              <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit</button>
-              <button class='btn btn-success' ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
-              <button class='btn btn-danger' ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
-         </div>
 
 
-  </div>
+<div ng-repeat="trip in tripsIndexCtrl.trips">
+      <div class="row">
+            <div class="col s12 m7">
+              <div class="card">
+                <div class="card-image">
+                  <img ng-src="{[{trip.image}]}">
+                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
+                  <span class="card-title">{[{trip.name}]}</span>
+                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+                </div>
+                <div class="card-content">
+                  <p>{[{trip.start_dt}]} to {[{trip.end_dt}]}</p>
+                  <input ng-show="editing" ng-model="trip.start_dt" type="text" class="form-control input-md">
+                  <input ng-show="editing" ng-model="trip.end_dt" type="text" class="form-control input-md">
+                  <p>Must See: {[{trip.main_attr}]} </p>
+                  <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
+                </div>
+                <div class="card-action">
+                  <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
+                  <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
+                  <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
 
 </div>

@@ -1,7 +1,7 @@
 console.log("app.js is linked");
 
 angular
-  .module('trip-planner', [])
+  .module('trip-planner', ['720kb.datepicker'])
   .config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('{[{');
   $interpolateProvider.endSymbol('}]}');
@@ -10,7 +10,7 @@ angular
 
 TripsIndexController.$inject = ['$http'];
 
-  function TripsIndexController ($http) {
+  function TripsIndexController ($http,ModalService) {
     var vm = this;
     //vm.user = user.id;
               $http({

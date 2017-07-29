@@ -7,13 +7,11 @@ function index(req, res) {
   Trip.find({}, function(err, allTrips) {
     console.log(allTrips);
     allTrips = allTrips.filter(function(el){
-      console.log(el.user[0]);
-                    //return el.user[0] === req.user['_id']
-                    return el.end_dt > Date.now();
-                    //return el.end_dt > Date.now();
-                    //return el.user.length > 0;
+                    //return String(el.user[0]) === String(req.user['_id'])
+                    return (String(el.user[0]) === String(req.user['_id']) && (el.end_dt > Date.now() ))
                     });
     res.json(allTrips);
+    //res.redirect('/');
   });
 
 }
@@ -43,7 +41,8 @@ function create(req, res) {
         res.sendStatus(500);
       }
     console.log("Success");
-    res.json(newTrip);
+    //res.json(newTrip);
+    res.redirect('/');
   });
 }
 
