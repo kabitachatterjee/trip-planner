@@ -11,6 +11,7 @@ function index(req, res) {
                     return (String(el.user[0]) === String(req.user['_id']) && (el.end_dt > Date.now() ))
                     });
     res.json(allTrips);
+    //res.redirect('/');
   });
 
 }
@@ -40,7 +41,8 @@ function create(req, res) {
         res.sendStatus(500);
       }
     console.log("Success");
-    res.json(newTrip);
+    //res.json(newTrip);
+    res.redirect('/');
   });
 }
 

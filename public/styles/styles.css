@@ -3,7 +3,7 @@ img {
   width: 200px;
 }
 .nav-wrapper {
-  background-color: #26a69a;
+  background-color: #e65100;
   position: fixed;
   z-index: 1;
 }
@@ -18,3 +18,14 @@ img {
   text-align: right;
   padding: 50px;
 }
+._720kb-datepicker-calendar-header:nth-child(odd) {
+    background: #e65100;
+  }
+  footer {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .section {
+    width: 30%;
+    padding: 50px;
+  }

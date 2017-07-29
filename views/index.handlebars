@@ -14,11 +14,7 @@
           </datepicker>
             <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
             <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
-            <button class="waves-effect waves-light btn" type="submit">Submit</button>
-            <!-- <datepicker datepicker-show="{{visibility}}">
-      <input ng-model="tripsIndexCtrl.newTrip.start_dt" type="text" class="angular-datepicker-input"/>
-    </datepicker> -->
-
+            <button class="waves-effect waves-light btn orange darken-4" type="submit">Add Trip</button>
           </form>
         </div>
 
@@ -48,9 +44,9 @@
                   <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
                 </div>
                 <div class="card-action">
-                  <button class="waves-effect waves-light btn" ng-hide="editing" ng-click="editing = true">Edit</button>
-                  <button class="waves-effect waves-light btn" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
-                  <button class="waves-effect waves-light btn right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                  <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
+                  <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
+                  <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
                 </div>
               </div>
             </div>
