@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var expressValidator = require('express-validator');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+router.use(expressValidator());
 
 
 var User = require('../models/user');
