@@ -11,7 +11,7 @@ img {
   height: 300px;
 }
 .card-title {
-  color: #e65100;
+  color: black;
 }
 .parallax img{
   display: unset;
@@ -57,4 +57,7 @@ img {
     text-align: center;
     font-size: 30px;
     background-color: #fbc02d;
+  }
+  .text-style {
+    color: #e65100;
   }

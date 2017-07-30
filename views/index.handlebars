@@ -7,7 +7,7 @@
           <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
             <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name" required>
             <datepicker datepicker-show="{{visibility}}">
-           <input type="text" class="angular-datepicker-input" placeholder="From date" min="tripsIndexCtrl.today | date:'yyyy-MM-dd'" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
+           <input type="text" class="angular-datepicker-input" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
            </datepicker>
 
           <datepicker>
@@ -31,14 +31,20 @@
                 <div class="card-image">
                   <img ng-src="{[{trip.image}]}">
                   <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
-                  <span class="card-title">{[{trip.name}]}</span>
+                  <span class="card-title text-style">{[{trip.name}]}</span>
                   <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
                 </div>
                 <div class="card-content">
-                  <p>{[{trip.start_dt | date:'dd/MM/yyyy'}]} to {[{trip.end_dt | date:'dd/MM/yyyy'}]}</p>
-                  <input ng-show="editing" ng-model="trip.start_dt" type="text" class="form-control input-md">
-                  <input ng-show="editing" ng-model="trip.end_dt" type="text" class="form-control input-md">
-                  <p>Must See: {[{trip.main_attr}]} </p>
+                  <p> <span class="text-style"><b>From</b></span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style"><b>to</b></span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+                  <datepicker datepicker-show="{{visibility}}">
+                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
+                 </datepicker>
+                  <!-- <input ng-show="editing" ng-model="trip.start_dt | date:'dd/MM/yyyy'" type="text" class="form-control input-md"> -->
+                  <datepicker datepicker-show="{{visibility}}">
+                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
+                 </datepicker>
+                  <!-- <input ng-show="editing" ng-model="trip.end_dt | date:'MM/dd/yyyy'" type="text" class="form-control input-md"> -->
+                  <p><span class="text-style"><b>Must See:</b></span> {[{trip.main_attr}]} </p>
                   <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
                 </div>
                 <div class="card-action">
@@ -62,14 +68,20 @@
                 <div class="card-image">
                   <img ng-src="{[{trip.image}]}">
                   <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
-                  <span class="card-title">{[{trip.name}]}</span>
+                  <span class="card-title text-style">{[{trip.name}]}</span>
                   <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
                 </div>
                 <div class="card-content">
-                  <p>{[{trip.start_dt | date:'dd/MM/yyyy'}]} to {[{trip.end_dt | date:'dd/MM/yyyy'}]}</p>
-                  <input ng-show="editing" ng-model="trip.start_dt" type="text" class="form-control input-md">
-                  <input ng-show="editing" ng-model="trip.end_dt" type="text" class="form-control input-md">
-                  <p>Must See: {[{trip.main_attr}]} </p>
+                  <p> <span class="text-style"><b>From</b></span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style"><b>to</b></span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+                  <datepicker datepicker-show="{{visibility}}">
+                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
+                 </datepicker>
+                  <!-- <input ng-show="editing" ng-model="trip.start_dt | date:'MM/dd/yyyy'" type="text" class="form-control input-md"> -->
+                  <datepicker datepicker-show="{{visibility}}">
+                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
+                 </datepicker>
+                  <!-- <input ng-show="editing" ng-model="trip.end_dt | date:'MM/dd/yyyy'" type="text" class="form-control input-md"> -->
+                  <p><span class="text-style"><b>Must See:</b></span> {[{trip.main_attr}]} </p>
                   <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
                 </div>
                 <div class="card-action">
