@@ -20,7 +20,7 @@ img {
   width: 50%;
   text-align: right;
   padding: 50px;
-  
+
 }
 ._720kb-datepicker-calendar-header:nth-child(odd) {
     background: #e65100;
@@ -43,4 +43,18 @@ img {
   }
   .row-spacer {
     margin-top: 50px;
+  }
+  .alert-success {
+    color : black;
+    font-weight: 400;
+    text-align: center;
+    font-size: 30px;
+    background-color: #81c784;
+  }
+  .alert-danger {
+    color : black;
+    font-weight: 400;
+    text-align: center;
+    font-size: 30px;
+    background-color: #fbc02d;
   }

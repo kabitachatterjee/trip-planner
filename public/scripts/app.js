@@ -27,12 +27,14 @@ TripsIndexController.$inject = ['$http'];
                                   return Date.parse(el.end_dt) > Date.now()
                                   });
                                   console.log(vm.trips);
+                  vm.length = vm.trips.length;
                   vm.pastTrips = data.filter(function(el){
 
                                   return Date.parse(el.end_dt) < Date.now()
                                   });
                                   console.log(vm.pastTrips);
 
+                vm.pastLength = vm.pastTrips.length;
                 }, function errorCallback(response) {
                   console.log('There was an error getting the data', response);
                 });
