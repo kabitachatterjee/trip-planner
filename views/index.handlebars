@@ -1,5 +1,5 @@
 
-    <div class="jumbotron">
+    <!-- <div class="jumbotron"> -->
       <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
         <h3>Welcome to trip planner</h3>
         <p>Your travel companion!!</p>
@@ -30,21 +30,24 @@
               <div class="card">
                 <div class="card-image">
                   <img ng-src="{[{trip.image}]}">
-                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
                   <span class="card-title text-style">{[{trip.name}]}</span>
-                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
-                </div>
+                  </div>
                 <div class="card-content">
-                  <p> <span class="text-style"><b>From</b></span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style"><b>to</b></span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+                  <h5 class="text-style">Destination: {[{trip.name}]}</h5>
+                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+                  <p> <span class="text-style">From</span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style">to</span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+
                   <datepicker datepicker-show="{{visibility}}">
                  <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
                  </datepicker>
-                  <!-- <input ng-show="editing" ng-model="trip.start_dt | date:'dd/MM/yyyy'" type="text" class="form-control input-md"> -->
+
                   <datepicker datepicker-show="{{visibility}}">
                  <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
                  </datepicker>
-                  <!-- <input ng-show="editing" ng-model="trip.end_dt | date:'MM/dd/yyyy'" type="text" class="form-control input-md"> -->
-                  <p><span class="text-style"><b>Must See:</b></span> {[{trip.main_attr}]} </p>
+
+                  <span class="text-style" ng-show="editing">Image Source: </span>
+                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
+                  <p><span class="text-style">Must Visit:</span> {[{trip.main_attr}]} </p>
                   <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
                 </div>
                 <div class="card-action">
@@ -67,21 +70,24 @@
               <div class="card">
                 <div class="card-image">
                   <img ng-src="{[{trip.image}]}">
-                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
                   <span class="card-title text-style">{[{trip.name}]}</span>
-                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+
                 </div>
                 <div class="card-content">
-                  <p> <span class="text-style"><b>From</b></span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style"><b>to</b></span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+                  <h5 class="text-style">Destination: {[{trip.name}]}</h5>
+                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+                  <p> <span class="text-style">From</span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style">to</span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
                   <datepicker datepicker-show="{{visibility}}">
                  <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
                  </datepicker>
-                  <!-- <input ng-show="editing" ng-model="trip.start_dt | date:'MM/dd/yyyy'" type="text" class="form-control input-md"> -->
+
                   <datepicker datepicker-show="{{visibility}}">
                  <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
                  </datepicker>
-                  <!-- <input ng-show="editing" ng-model="trip.end_dt | date:'MM/dd/yyyy'" type="text" class="form-control input-md"> -->
-                  <p><span class="text-style"><b>Must See:</b></span> {[{trip.main_attr}]} </p>
+
+                  <span class="text-style" ng-show="editing">Image Source: </span>
+                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
+                  <p><span class="text-style">Must Visit:</span> {[{trip.main_attr}]} </p>
                   <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
                 </div>
                 <div class="card-action">
@@ -95,4 +101,4 @@
 </div>
 
 </div>
-</div>
+<!-- </div> -->
