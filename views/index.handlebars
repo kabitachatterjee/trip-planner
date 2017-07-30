@@ -1,14 +1,15 @@
 
     <div class="jumbotron">
       <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
-        <h1>Welcome to trip planner</h1>
+        <h3>Welcome to trip planner</h3>
         <p>Your travel companion!!</p>
-        <div class="add input-field">
+        <div class="add input-field row-spacer">
           <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
             <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name" required>
             <datepicker datepicker-show="{{visibility}}">
-            <input type="text" class="angular-datepicker-input" placeholder="From date" min="tripsIndexCtrl.today | date:'yyyy-MM-dd'" ng-model="tripsIndexCtrl.start_dt" required>
-          </datepicker>
+           <input type="text" class="angular-datepicker-input" placeholder="From date" min="tripsIndexCtrl.today | date:'yyyy-MM-dd'" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
+           </datepicker>
+
           <datepicker>
             <input type="text" class="angular-datepicker-input" placeholder="To date" min="tripsIndexCtrl.newTrip.start_dt" ng-model="tripsIndexCtrl.newTrip.end_dt" required>
           </datepicker>
@@ -18,8 +19,11 @@
           </form>
         </div>
 
-  <h3> Upcoming Trips </h3>
-<div ng-repeat="trip in tripsIndexCtrl.trips">
+  <h5 class="row-spacer"> Upcoming Trips </h5>
+<div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.trips">
+  <div ng-if="tripsIndexCtrl.trips.length == 0">
+    <h3>No</h3>
+  </div>
       <div class="row">
             <div class="col s12 m7">
               <div class="card">
@@ -46,8 +50,11 @@
           </div>
 </div>
 
-<h3> Past Trips </h3>
-<div ng-repeat="trip in tripsIndexCtrl.pastTrips">
+<h5 class="row-spacer"> Past Trips </h5>
+<div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.pastTrips">
+  <div ng-if="tripsIndexCtrl.pastTrips.length == 0">
+    <h3>No</h3>
+  </div>
       <div class="row">
             <div class="col s12 m7">
               <div class="card">
@@ -74,4 +81,5 @@
           </div>
 </div>
 
+</div>
 </div>
