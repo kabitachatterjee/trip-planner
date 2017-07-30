@@ -68,7 +68,7 @@ vm.showTrip = function (trip) {
 
 vm.deleteTrip = function (trip) {
   console.log("clicked to delete" + trip);
-  alert("Are you sure you want to delete this trip?");
+  if (confirm("Are you sure you want to delete this trip?")) {
 
                                   $http({
                                   method: 'DELETE',
@@ -80,6 +80,7 @@ vm.deleteTrip = function (trip) {
                                   }, function errorCallback(response) {
                                     console.log('There was an error deleting the data', response);
                                   });
+                                }
                                 }
 
   vm.editTrip = function (trip) {
