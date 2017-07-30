@@ -6,6 +6,7 @@
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
 <link rel="stylesheet" href="/vendor/angular-datepicker.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="/styles/styles.css">
@@ -17,7 +18,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
 
 <!-- APPLICATION SCRIPTS -->
@@ -29,7 +32,7 @@
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Travelbug</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-mobile" class="right">
         {{#if user}}
         <li><a href="#">{{user.name}}</a></li>
         <li><a href="/users/logout">Logout</a></li>
@@ -61,8 +64,8 @@
         </div>
       </div>
 
-      <footer class="footer">
-        <p><b>&copy; 2017 TravelBug, Inc.</b></p>
+      <footer class="footer row-spacer text-style">
+        <p><b>&copy; 2017 TravelBug Inc.</b></p>
       </footer>
 
 

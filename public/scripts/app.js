@@ -8,19 +8,33 @@ angular
 })
   .controller('TripsIndexController', TripsIndexController);
 
+
+
 TripsIndexController.$inject = ['$http'];
 
-  function TripsIndexController ($http,ModalService) {
+
+  function TripsIndexController ($http) {
     var vm = this;
-    //vm.user = user.id;
+    vm.today = new Date();
               $http({
                   method: 'GET',
                   url: '/api/trips'
                 }).then(function successCallback(response) {
                   console.log(response.data);
                   data = response.data;
-                  vm.trips = data;
-                  //vm.trips = data;
+                  vm.trips = data.filter(function(el){
+
+                                  return Date.parse(el.end_dt) > Date.now()
+                                  });
+                                  console.log(vm.trips);
+                  vm.length = vm.trips.length;
+                  vm.pastTrips = data.filter(function(el){
+
+                                  return Date.parse(el.end_dt) < Date.now()
+                                  });
+                                  console.log(vm.pastTrips);
+
+                vm.pastLength = vm.pastTrips.length;
                 }, function errorCallback(response) {
                   console.log('There was an error getting the data', response);
                 });
@@ -33,7 +47,7 @@ TripsIndexController.$inject = ['$http'];
                                 contentType: 'application/x-www-form-urlencoded'
                               }).then(function successCallback(response) {
 
-                                console.log(response.data);
+                                //console.log(response.data);
 
                               }, function errorCallback(response) {
                                 console.log('There was an error posting the data', response);
@@ -54,6 +68,7 @@ vm.showTrip = function (trip) {
 
 vm.deleteTrip = function (trip) {
   console.log("clicked to delete" + trip);
+  if (confirm("Are you sure you want to delete this trip?")) {
 
                                   $http({
                                   method: 'DELETE',
@@ -65,6 +80,7 @@ vm.deleteTrip = function (trip) {
                                   }, function errorCallback(response) {
                                     console.log('There was an error deleting the data', response);
                                   });
+                                }
                                 }
 
   vm.editTrip = function (trip) {

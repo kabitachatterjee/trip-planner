@@ -1,14 +1,23 @@
+body {
+  font-family: 'Zilla Slab', sans-serif;
+}
 img {
   height:100px;
   width: 200px;
 }
 .nav-wrapper {
   background-color: #e65100;
-  position: fixed;
-  z-index: 1;
+  z-index: 10;
+}
+.brand-logo {
+  font-size: 1.6em;
+  margin-left: 20px;
 }
 .card-image img {
   height: 300px;
+}
+.card-title {
+  color: black;
 }
 .parallax img{
   display: unset;
@@ -17,6 +26,7 @@ img {
   width: 50%;
   text-align: right;
   padding: 50px;
+
 }
 ._720kb-datepicker-calendar-header:nth-child(odd) {
     background: #e65100;
@@ -26,6 +36,34 @@ img {
     margin-top: 10px;
   }
   .section {
-    width: 30%;
+    width: 40%;
     padding: 50px;
+
+  }
+  .sign {
+    background-color: black;
+    padding: 15%;
+    }
+  .page-header {
+    color: white;
+  }
+  .row-spacer {
+    margin-top: 50px;
+  }
+  .alert-success {
+    color : black;
+    font-weight: 400;
+    text-align: center;
+    font-size: 30px;
+    background-color: #81c784;
+  }
+  .alert-danger {
+    color : black;
+    font-weight: 400;
+    text-align: center;
+    font-size: 30px;
+    background-color: #fbc02d;
+  }
+  .text-style {
+    color: #e65100;
   }
