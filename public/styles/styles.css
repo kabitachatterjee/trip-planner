@@ -10,6 +10,9 @@ img {
 .card-image img {
   height: 300px;
 }
+.card-title {
+  color: #e65100;
+}
 .parallax img{
   display: unset;
 }
@@ -26,6 +29,14 @@ img {
     margin-top: 10px;
   }
   .section {
-    width: 30%;
+    width: 40%;
     padding: 50px;
+
+  }
+  .sign {
+    background-color: black;
+    padding: 15%;
+    }
+  .page-header {
+    color: white;
   }
