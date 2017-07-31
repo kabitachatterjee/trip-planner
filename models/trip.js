@@ -9,7 +9,7 @@ var TripSchema = new Schema({
   main_attr: String,
   image: {
     type: String,
-    default:"http://goldenhillsrealestate.com/files/2010/11/Stevens-trail-sign-2.jpg"
+    default:"http://media.cmgdigital.com/shared/img/photos/2014/04/12/58/74/99_reasons_to_travel.jpg"
   },
   user: [{
     type: Schema.Types.ObjectId,
