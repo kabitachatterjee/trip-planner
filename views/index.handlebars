@@ -3,7 +3,6 @@
 
         <div class="col s6 container">
          <p class="alert-success">{[{tripsIndexCtrl.message}]}</p>
-         <p>You can add trips using the form below</p>
 
 
         <div class="add input-field row-spacer">
@@ -28,7 +27,7 @@
         <div ng-if="tripsIndexCtrl.length === 0">
             <p class="alert-success">You have no upcoming trips</p>
         </div>
-        <div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.trips">
+        <div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.trips | orderBy:'created_at':true">
             <div class="row">
               <div class="col s12 m7">
                 <div class="card">
@@ -66,7 +65,7 @@
         <div ng-if="tripsIndexCtrl.pastLength === 0">
             <p class="alert-success">You have no past trips</p>
         </div>
-        <div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.pastTrips">
+        <div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.pastTrips | orderBy:'created_at':true">
             <div class="row">
                 <div class="col s12 m7">
                     <div class="card">
