@@ -25,7 +25,8 @@ img {
 .add {
   width: 80%;
   text-align: right;
-  padding: 50px;
+  padding: 40px;
+
 
 }
 ._720kb-datepicker-calendar-header:nth-child(odd) {
@@ -41,8 +42,13 @@ img {
 
   }
   .sign {
-    background-color: black;
     padding: 20%;
+    }
+
+  .add-form {
+      z-index:1;
+    /*position:fixed;*/
+
     }
   .page-header {
     color: white;
@@ -54,14 +60,14 @@ img {
     color : black;
     font-weight: 400;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     background-color: #81c784;
   }
   .alert-danger {
     color : black;
     font-weight: 400;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     background-color: #fbc02d;
   }
   .text-style {
