@@ -1,102 +1,91 @@
-
-      <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
+<div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
         <h3>Welcome to trip planner</h3>
         <p>Your travel companion!!</p>
         <div class="add input-field row-spacer">
-          <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
-            <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name" required>
-            <datepicker datepicker-show="{{visibility}}">
-           <input type="text" class="angular-datepicker-input" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
-           </datepicker>
-
-          <datepicker>
-            <input type="text" class="angular-datepicker-input" placeholder="To date" min="tripsIndexCtrl.newTrip.start_dt" ng-model="tripsIndexCtrl.newTrip.end_dt" required>
-          </datepicker>
-            <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
-            <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
-            <button class="waves-effect waves-light btn orange darken-4" type="submit">Add Trip</button>
-          </form>
+           <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
+              <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name" required>
+              <datepicker datepicker-show="{{visibility}}">
+                <input type="text" class="angular-datepicker-input" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
+              </datepicker>
+              <datepicker>
+                <input type="text" class="angular-datepicker-input" placeholder="To date" min="tripsIndexCtrl.newTrip.start_dt" ng-model="tripsIndexCtrl.newTrip.end_dt" required>
+              </datepicker>
+                <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
+                <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
+                <button class="waves-effect waves-light btn orange darken-4" type="submit">Add Trip</button>
+            </form>
         </div>
-
-  <h5 class="row-spacer"> Upcoming Trips </h5>
-  <div ng-if="tripsIndexCtrl.length === 0">
-    <p class="alert-success">You have no upcoming trips</p>
-  </div>
-<div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.trips">
-
-      <div class="row">
-            <div class="col s12 m7">
-              <div class="card">
-                <div class="card-image">
-                  <img ng-src="{[{trip.image}]}">
-                  <span class="card-title text-style">{[{trip.name}]}</span>
+        <h5 class="row-spacer"> Upcoming Trips </h5> <!--Upcoming trips view ---->
+        <div ng-if="tripsIndexCtrl.length === 0">
+            <p class="alert-success">You have no upcoming trips</p>
+        </div>
+        <div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.trips">
+            <div class="row">
+              <div class="col s12 m7">
+                <div class="card">
+                  <div class="card-image">
+                    <img ng-src="{[{trip.image}]}">
+                      <span class="card-title text-style">{[{trip.name}]}</span>
                   </div>
-                <div class="card-content">
-                  <h5 class="text-style">Destination: {[{trip.name}]}</h5>
-                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
-                  <p> <span class="text-style">From</span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style">to</span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
-
-                  <datepicker datepicker-show="{{visibility}}">
-                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
-                 </datepicker>
-
-                  <datepicker datepicker-show="{{visibility}}">
-                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
-                 </datepicker>
-
-                  <span class="text-style" ng-show="editing">Image Source: </span>
-                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
-                  <p><span class="text-style">Must Visit:</span> {[{trip.main_attr}]} </p>
-                  <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
-                </div>
-                <div class="card-action">
-                  <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
-                  <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
-                  <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                  <div class="card-content">
+                    <h5 class="text-style">Destination: {[{trip.name}]}</h5>
+                      <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+                        <p> <span class="text-style">From</span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style">to</span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+                        <datepicker datepicker-show="{{visibility}}">
+                            <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
+                        </datepicker>
+                        <datepicker datepicker-show="{{visibility}}">
+                            <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
+                        </datepicker>
+                        <span class="text-style" ng-show="editing">Image Source: </span>
+                        <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
+                          <p><span class="text-style">Must Visit:</span> {[{trip.main_attr}]} </p>
+                        <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
+                    </div>
+                    <div class="card-action">
+                        <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
+                        <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
+                        <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                    </div>
                 </div>
               </div>
             </div>
-          </div>
-</div>
+        </div> <!-- End of Upcoming trips view ---->
 
-<h5 class="row-spacer"> Past Trips </h5>
-<div ng-if="tripsIndexCtrl.pastLength === 0">
-  <p class="alert-success">You have no past trips</p>
-</div>
-<div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.pastTrips">
-      <div class="row">
-            <div class="col s12 m7">
-              <div class="card">
-                <div class="card-image">
-                  <img ng-src="{[{trip.image}]}">
-                  <span class="card-title text-style">{[{trip.name}]}</span>
-
+        <h5 class="row-spacer"> Past Trips </h5> <!--Past trips view ---->
+        <div ng-if="tripsIndexCtrl.pastLength === 0">
+            <p class="alert-success">You have no past trips</p>
+        </div>
+        <div class="row-spacer" ng-repeat="trip in tripsIndexCtrl.pastTrips">
+            <div class="row">
+                <div class="col s12 m7">
+                    <div class="card">
+                      <div class="card-image">
+                        <img ng-src="{[{trip.image}]}">
+                        <span class="card-title text-style">{[{trip.name}]}</span>
+                      </div>
+                      <div class="card-content">
+                        <h5 class="text-style">Destination: {[{trip.name}]}</h5>
+                          <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
+                          <p> <span class="text-style">From</span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style">to</span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
+                          <datepicker datepicker-show="{{visibility}}">
+                              <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
+                          </datepicker>
+                          <datepicker datepicker-show="{{visibility}}">
+                              <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
+                          </datepicker>
+                            <span class="text-style" ng-show="editing">Image Source: </span>
+                              <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
+                              <p><span class="text-style">Must Visit:</span> {[{trip.main_attr}]} </p>
+                              <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
+                        </div>
+                        <div class="card-action">
+                            <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
+                            <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
+                            <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                        </div>
+                      </div>
                 </div>
-                <div class="card-content">
-                  <h5 class="text-style">Destination: {[{trip.name}]}</h5>
-                  <input ng-show="editing" ng-model="trip.name" type="text" class="form-control input-md">
-                  <p> <span class="text-style">From</span> {[{trip.start_dt | date:'MM/dd/yyyy'}]} <span class="text-style">to</span> {[{trip.end_dt | date:'MM/dd/yyyy'}]}</p>
-                  <datepicker datepicker-show="{{visibility}}">
-                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="From date" ng-model="trip.start_dt">
-                 </datepicker>
-
-                  <datepicker datepicker-show="{{visibility}}">
-                 <input ng-show="editing" type="text" class="angular-datepicker-input" placeholder="To date" ng-model="trip.end_dt">
-                 </datepicker>
-
-                  <span class="text-style" ng-show="editing">Image Source: </span>
-                  <input ng-show="editing" ng-model="trip.image" type="text" class="form-control input-md">
-                  <p><span class="text-style">Must Visit:</span> {[{trip.main_attr}]} </p>
-                  <input ng-show="editing" ng-model="trip.main_attr" type="text" class="form-control input-md">
-                </div>
-                <div class="card-action">
-                  <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
-                  <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
-                  <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
-                </div>
-              </div>
-            </div>
-          </div>
-</div>
-
-</div>
+          </div>  <!--End of Past trips view ---->
+        </div>
+</div> <!--- End of container ------>
