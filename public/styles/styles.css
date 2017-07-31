@@ -42,13 +42,13 @@ img {
   }
   .sign {
     background-color: black;
-    padding: 15%;
+    padding: 20%;
     }
   .page-header {
     color: white;
   }
   .row-spacer {
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .alert-success {
     color : black;
@@ -66,4 +66,9 @@ img {
   }
   .text-style {
     color: #e65100;
+  }
+  .splash img {
+    width: 100%;
+    height: 70%;
+
   }
