@@ -40,6 +40,7 @@ function create(req, res) {
       }
     console.log("Success");
     res.redirect('/');
+    //res.flash('success_msg', 'Trip added successfully');
   });
 }
 
