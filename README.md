@@ -1,6 +1,6 @@
 # TravelBug
+This is an application allowing users to keep track of their upcoming and past trips to various destinations. It can be used to plan an itinerary for each trip.<br/>
 
-TODO
 Heroku Link:  https://floating-mesa-83747.herokuapp.com/
 
 ## Technologies used:
