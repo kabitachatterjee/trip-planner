@@ -5,11 +5,11 @@ angular.module('trip-planner', ['720kb.datepicker'])
                 $interpolateProvider.startSymbol('{[{');
                 $interpolateProvider.endSymbol('}]}');
               })
-        .controller('TripsIndexController', TripsIndexController);
+        .controller('TripsIndexController', TripsIndexController)
 
 TripsIndexController.$inject = ['$http'];
 
-function TripsIndexController ($http) {
+function TripsIndexController ($http, ModalService) {
     var vm = this;
     vm.today = new Date();
               $http({
@@ -59,7 +59,8 @@ function TripsIndexController ($http) {
                                                   }, function errorCallback(response) {
                                                       console.log('There was an error deleting the data', response);
                                                   });
-                                                }
+                                        }
+
                                 }
 
 //Update function
@@ -76,5 +77,6 @@ function TripsIndexController ($http) {
                                                       console.log('There was an error updating the data', response);
                                                    });
                                 }
+
 
 } // end of TripsIndexController

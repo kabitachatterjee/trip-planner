@@ -1,7 +1,10 @@
 <div class="container" ng-controller="TripsIndexController as tripsIndexCtrl">
+      <div class="row">
+
+        <div class="col s6 container">
          <p class="alert-success">{[{tripsIndexCtrl.message}]}</p>
-        <h3>Welcome to trip planner</h3>
-        <p>Your travel companion!!</p>
+         <p>You can add trips using the form below</p>
+
 
         <div class="add input-field row-spacer">
            <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
@@ -17,6 +20,10 @@
                 <button class="waves-effect waves-light btn orange darken-4" type="submit">Add Trip</button>
             </form>
         </div>
+      </div>
+
+
+<div class="col s6 container">
         <h5 class="row-spacer"> Upcoming Trips </h5> <!--Upcoming trips view ---->
         <div ng-if="tripsIndexCtrl.length === 0">
             <p class="alert-success">You have no upcoming trips</p>
@@ -48,6 +55,7 @@
                         <button class="waves-effect waves-light btn orange darken-4" ng-hide="editing" ng-click="editing = true">Edit</button>
                         <button class="waves-effect waves-light btn orange darken-4" ng-show="editing" ng-click="tripsIndexCtrl.editTrip(trip); editing = false">Save Changes</button>
                         <button class="waves-effect waves-light btn orange darken-4 right" ng-click="tripsIndexCtrl.deleteTrip(trip)">Delete</button>
+                        <!-- <a class="waves-effect waves-light btn modal-trigger" href="#delete-modal">Delete Modal</a> -->
                     </div>
                 </div>
               </div>
@@ -90,4 +98,6 @@
                 </div>
           </div>  <!--End of Past trips view ---->
         </div>
+      </div>
+    </div>
 </div> <!--- End of container ------>

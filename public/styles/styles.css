@@ -16,14 +16,14 @@ img {
 .card-image img {
   height: 300px;
 }
-.card-title {
-  color: black;
+.card {
+  width: 400px;
 }
 .parallax img{
   display: unset;
 }
 .add {
-  width: 50%;
+  width: 80%;
   text-align: right;
   padding: 50px;
 
