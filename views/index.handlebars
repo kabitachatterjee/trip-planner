@@ -15,7 +15,7 @@
                 <button class="waves-effect waves-light btn orange darken-4" type="submit">Add Trip</button>
             </form>
         </div>
-        <h5 class="row-spacer"> Upcoming Trips </h5>
+        <h5 class="row-spacer"> Upcoming Trips </h5> <!--Upcoming trips view ---->
         <div ng-if="tripsIndexCtrl.length === 0">
             <p class="alert-success">You have no upcoming trips</p>
         </div>
@@ -50,9 +50,9 @@
                 </div>
               </div>
             </div>
-        </div>
+        </div> <!-- End of Upcoming trips view ---->
 
-        <h5 class="row-spacer"> Past Trips </h5>
+        <h5 class="row-spacer"> Past Trips </h5> <!--Past trips view ---->
         <div ng-if="tripsIndexCtrl.pastLength === 0">
             <p class="alert-success">You have no past trips</p>
         </div>
@@ -86,6 +86,6 @@
                         </div>
                       </div>
                 </div>
-          </div>
+          </div>  <!--End of Past trips view ---->
         </div>
-</div>
+</div> <!--- End of container ------>
