@@ -8,12 +8,9 @@ function index(req, res) {
     console.log(allTrips);
     allTrips = allTrips.filter(function(el){
                     return String(el.user[0]) === String(req.user['_id'])
-                    //return (String(el.user[0]) === String(req.user['_id']) && (el.end_dt > Date.now() ))
                     });
     res.json(allTrips);
-    //res.redirect('/');
-  });
-
+    });
 }
 
 
@@ -30,7 +27,7 @@ function show(req, res) {
 }
 
 function create(req, res) {
-  // send back all our trips as JSON objects
+  // send back all our trips with the newly created trip as JSON objects
   console.log(req.user);
   req.body.user = req.user;
   console.log(req.body);
@@ -42,12 +39,12 @@ function create(req, res) {
         res.sendStatus(500);
       }
     console.log("Success");
-    //res.json(newTrip);
     res.redirect('/');
   });
 }
 
 function destroy(req, res) {
+  // searches a trip by its id and deletes it
   console.log("trip_id:",req.params.id);
   var tripID = req.params.id;
   Trip.findByIdAndRemove({"_id": tripID}, function(err, trip) {
@@ -60,6 +57,7 @@ function destroy(req, res) {
 
 }
 function update(req, res) {
+  // searches a trip by its id and updates it based on request params
   var trip = Trip.findById(req.params.id, function(err, trip) {
     if (err) {
       console.log('error, trip not found');
@@ -81,9 +79,9 @@ function update(req, res) {
 
 
 module.exports = {
-  index: index,
- create: create,
-   show: show,
- destroy: destroy,
- update: update
-};
+                  index: index,
+                  create: create,
+                  show: show,
+                  destroy: destroy,
+                  update: update
+                };
