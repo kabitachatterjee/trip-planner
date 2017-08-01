@@ -42,15 +42,7 @@ img {
     padding: 20%;
     }
 
-  .add-form {
-      z-index:1;
-    /*position:fixed;*/
-
-    }
-  .page-header {
-    color: white;
-  }
-  .row-spacer {
+.row-spacer {
     margin-top: 40px;
   }
   .alert-success {
