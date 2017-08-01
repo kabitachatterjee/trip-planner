@@ -9,10 +9,10 @@
            <form action="/api/trips" method="post" ng-submit="tripsIndexCtrl.createTrip()">
               <input type="text" class="form-control" placeholder="New trip name" ng-model="tripsIndexCtrl.newTrip.name" required>
               <datepicker datepicker-show="{{visibility}}">
-                <input type="text" class="angular-datepicker-input" placeholder="From date" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
+                <input type="text" class="angular-datepicker-input" placeholder="From date" datepicker-options="tripsIndexCtrl.dateOptions.minDate" ng-model="tripsIndexCtrl.newTrip.start_dt" required>
               </datepicker>
               <datepicker>
-                <input type="text" class="angular-datepicker-input" placeholder="To date" min="tripsIndexCtrl.newTrip.start_dt" ng-model="tripsIndexCtrl.newTrip.end_dt" required>
+                <input type="text" class="angular-datepicker-input" placeholder="To date" datepicker-options="tripsIndexCtrl.dateOptions.minDate" ng-model="tripsIndexCtrl.newTrip.end_dt" required>
               </datepicker>
                 <input type="text" class="form-control" placeholder="image as a string" ng-model="tripsIndexCtrl.newTrip.image">
                 <input type="text" class="form-control" placeholder="Must visit" ng-model="tripsIndexCtrl.newTrip.main_attr">
@@ -20,9 +20,11 @@
             </form>
         </div>
       </div>
+<i class="material-icons" onclick="topFunction()" id="myBtn">arrow_upward</i>
+      <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
 
 
-<div class="col s6 container">
+<div class="col s6 container tripsContainer">
         <h5 class="row-spacer"> Upcoming Trips </h5> <!--Upcoming trips view ---->
         <div ng-if="tripsIndexCtrl.length === 0">
             <p class="alert-success">You have no upcoming trips</p>
