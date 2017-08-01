@@ -28,8 +28,10 @@ Heroku Link:  https://floating-mesa-83747.herokuapp.com/
 - Advanced search capabilities (back-end search)
 - Realtime sending alerts one day prior to an upcoming trip
 
-## Searching for a trail:
-![screenshot #1]
+## Screenshots:
+![screenshot #1](/public/images/travel_bug_login.png?raw=true "travel_bug_login")
+
+![screenshot #2](/public/images/travel_bug_index.png?raw=true "travel_bug_index")
 
 
 
