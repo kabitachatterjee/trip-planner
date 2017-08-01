@@ -12,6 +12,11 @@ TripsIndexController.$inject = ['$http'];
 function TripsIndexController ($http, ModalService) {
     var vm = this;
     vm.today = new Date();
+    vm.dateOptions = {
+                      format: 'MM/dd/yyyy',
+                      minDate: vm.today,
+                      startingDay: 1
+                    };
               $http({
                     method: 'GET',
                     url: '/api/trips'
@@ -38,7 +43,6 @@ function TripsIndexController ($http, ModalService) {
                                      data: vm.newTrip,
                                      contentType: 'application/x-www-form-urlencoded'
                                     }).then(function successCallback(response) {
-                                      //vm.message = "Created trip successfully";
                                                 }, function errorCallback(response) {
                                                   console.log('There was an error posting the data', response);
                                                 });
@@ -55,7 +59,6 @@ function TripsIndexController ($http, ModalService) {
                                                     var index = vm.trips.indexOf(trip._id);
                                                     console.log("index is: " + index);
                                                     vm.trips.splice(index,1);
-                                                  //  vm.message = "Deleted trip successfully";
                                                   }, function errorCallback(response) {
                                                       console.log('There was an error deleting the data', response);
                                                   });
@@ -72,7 +75,6 @@ function TripsIndexController ($http, ModalService) {
                                        url: '/api/trips/'+ trip._id,
                                        data: trip
                                       }).then(function successCallback(json) {
-                                                //  vm.message = "Updated trip successfully";
                                                   }, function errorCallback(response) {
                                                       console.log('There was an error updating the data', response);
                                                    });
@@ -80,3 +82,20 @@ function TripsIndexController ($http, ModalService) {
 
 
 } // end of TripsIndexController
+
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scroll").style.display = "block";
+    } else {
+        document.getElementById("scroll").style.display = "none"; }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+}
