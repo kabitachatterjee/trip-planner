@@ -13,6 +13,9 @@ body.login {
 a {
   color: #031be5;
 }
+#sidenav-overlay {
+  z-index: -1;
+}
 .nav-wrapper {
   background-color: #9c27b0;
   z-index: 10;

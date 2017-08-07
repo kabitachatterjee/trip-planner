@@ -27,10 +27,11 @@
     </head>
     <body>
       <div class="header clearfix">
-          <nav>
+          <nav class="navbar-fixed">
             <div class="nav-wrapper"> <!-- navbar -->
                 <a href="#" class="brand-logo">Travelbug</a>
-                  <ul id="nav-mobile" class="right">
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
                     {{#if user}}
                       <li><a href="#">{{user.name}}</a></li>
                       <li><a href="/users/logout">Logout</a></li>
@@ -39,6 +40,15 @@
                       <li><a href="/users/register">Sign up</a></li>
                     {{/if}}
                   </ul>
+                  <ul class="side-nav" id="mobile-demo">
+                    {{#if user}}
+                      <li><a href="#">{{user.name}}</a></li>
+                      <li><a href="/users/logout">Logout</a></li>
+                    {{else}}
+                      <li><a href="/users/login">Login</a></li>
+                      <li><a href="/users/register">Sign up</a></li>
+                    {{/if}}
+      </ul>
             </div>
         </nav>
       </div><!-- end of navbar -->
@@ -52,5 +62,8 @@
     <footer class="footer row-spacer text-style">
       <p><b>&copy; 2017 TravelBug Inc.</b></p>
     </footer>
+    <script type="text/javascript">
+      $(".button-collapse").sideNav();
+    </script>
   </body>
 </html>
