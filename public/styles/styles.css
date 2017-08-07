@@ -16,6 +16,13 @@ a {
 #sidenav-overlay {
   z-index: -1;
 }
+.side-nav {
+  width: 112px;
+  background-color: #646065;
+}
+.side-nav li a {
+  color: #fafafa;
+}
 .nav-wrapper {
   background-color: #9c27b0;
   z-index: 10;
