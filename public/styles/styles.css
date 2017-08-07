@@ -52,18 +52,17 @@ a {
     margin-top: 40px;
   }
   .alert-success {
-    color : black;
+    color : #58d85d;
     font-weight: 400;
     text-align: center;
     font-size: 20px;
-    background-color: #81c784;
+    /*background-color: #81c784;*/
   }
   .alert-danger {
-    color : black;
+    color : #eca700;
     font-weight: 400;
     text-align: center;
     font-size: 20px;
-    background-color: #fbc02d;
   }
   .text-style {
     color: #e65100;
