@@ -17,6 +17,7 @@ function TripsIndexController ($http, ModalService) {
                       minDate: vm.today,
                       startingDay: 1
                     };
+
               $http({
                     method: 'GET',
                     url: '/api/trips'
@@ -25,6 +26,7 @@ function TripsIndexController ($http, ModalService) {
                                 vm.trips = data.filter(function(el){
                                 return Date.parse(el.end_dt) > Date.now()
                                 });
+                                console.log(vm.trips);
                                 vm.length = vm.trips.length;
                                 vm.pastTrips = data.filter(function(el){
                                           return Date.parse(el.end_dt) < Date.now()
@@ -33,6 +35,8 @@ function TripsIndexController ($http, ModalService) {
                       }, function errorCallback(response) {
                             console.log('There was an error getting the data', response);
                           });
+
+
 
 //Create function
 
