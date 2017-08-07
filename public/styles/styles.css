@@ -1,5 +1,8 @@
 body {
   font-family: 'Zilla Slab', sans-serif;
+}
+
+body.login {
   background-image: url(../images/plan.jpg);
   min-height:100%;
   background-attachment: fixed;
@@ -7,6 +10,7 @@ body {
   background-size: cover;
   -moz-background-size: cover;
 }
+
 img {
   height:100px;
   width: 200px;
@@ -45,6 +49,9 @@ a {
     width: 40%;
     padding: 50px;
 
+  }
+  .main-container {
+    background-image: none;
   }
   .sign {
     padding: 8%;
