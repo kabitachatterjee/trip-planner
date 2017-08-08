@@ -16,6 +16,9 @@ a {
 #sidenav-overlay {
   z-index: -1;
 }
+.center {
+  text-align: center;
+}
 .side-nav {
   width: 112px;
   background-color: #646065;
@@ -39,13 +42,12 @@ a {
 }
 .add {
   width: 80%;
-  text-align: right;
   padding: 40px;
-  background-color: rgba(80,69,62,0.5);
+  /*background-color: #666467;*/
 }
 
 ._720kb-datepicker-calendar-header:nth-child(odd) {
-    background: #9c27b0;
+    background-color: #9c27b0;
   }
   footer {
     text-align: center;
@@ -98,18 +100,26 @@ a {
     background-color: #555; /* Add a dark-grey background on hover */
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 650px) {
     .sign {
         padding: 10%;
         height: 90%;
         width: 80%;
       }
-    .row-spacer {
-        margin-top: 90px;
+      .add {
+        padding: 10%;
+        height: 90%;
+        width: 100%;
       }
     .btn {
     height: 24px;
     line-height: 14px;
     padding: 0 0.5rem;
+  }
+  .card-image img {
+    height: 300px;
+  }
+  .card {
+    width: 350px;
   }
 }

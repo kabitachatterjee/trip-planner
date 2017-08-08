@@ -1,6 +1,6 @@
 console.log("app.js is linked");
 
-angular.module('trip-planner', ['720kb.datepicker'])
+angular.module('trip-planner', ['720kb.datepicker','ui.materialize'])
         .config(function($interpolateProvider) {
                 $interpolateProvider.startSymbol('{[{');
                 $interpolateProvider.endSymbol('}]}');
@@ -9,8 +9,43 @@ angular.module('trip-planner', ['720kb.datepicker'])
 
 TripsIndexController.$inject = ['$http'];
 
-function TripsIndexController ($http, ModalService) {
+function TripsIndexController ($http) {
+
+
     var vm = this;
+
+    var currentTime = new Date();
+vm.currentTime = currentTime;
+vm.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+vm.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+vm.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+vm.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+vm.disable = [false, 1, 7];
+vm.today = 'Today';
+vm.clear = 'Clear';
+vm.close = 'Close';
+var days = 15;
+vm.minDate = (new Date(vm.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+vm.maxDate = (new Date(vm.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+vm.onStart = function () {
+    console.log('onStart');
+};
+vm.onRender = function () {
+    console.log('onRender');
+};
+vm.onOpen = function () {
+    console.log('onOpen');
+};
+vm.onClose = function () {
+    console.log('onClose');
+};
+vm.onSet = function () {
+    console.log('onSet');
+};
+vm.onStop = function () {
+    console.log('onStop');
+};
+
     vm.today = new Date();
     vm.dateOptions = {
                       format: 'MM/dd/yyyy',
