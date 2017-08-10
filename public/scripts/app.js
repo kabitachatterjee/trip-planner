@@ -1,6 +1,6 @@
 console.log("app.js is linked");
 
-angular.module('trip-planner', ['720kb.datepicker'])
+angular.module('trip-planner', ['720kb.datepicker','ui.materialize'])
         .config(function($interpolateProvider) {
                 $interpolateProvider.startSymbol('{[{');
                 $interpolateProvider.endSymbol('}]}');
@@ -9,14 +9,18 @@ angular.module('trip-planner', ['720kb.datepicker'])
 
 TripsIndexController.$inject = ['$http'];
 
-function TripsIndexController ($http, ModalService) {
+function TripsIndexController ($http) {
+
+
     var vm = this;
+
     vm.today = new Date();
     vm.dateOptions = {
                       format: 'MM/dd/yyyy',
                       minDate: vm.today,
                       startingDay: 1
                     };
+
               $http({
                     method: 'GET',
                     url: '/api/trips'
@@ -33,6 +37,8 @@ function TripsIndexController ($http, ModalService) {
                       }, function errorCallback(response) {
                             console.log('There was an error getting the data', response);
                           });
+
+
 
 //Create function
 
@@ -82,20 +88,3 @@ function TripsIndexController ($http, ModalService) {
 
 
 } // end of TripsIndexController
-
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("scroll").style.display = "block";
-    } else {
-        document.getElementById("scroll").style.display = "none"; }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0; // For Chrome, Safari and Opera
-    document.documentElement.scrollTop = 0; // For IE and Firefox
-}
