@@ -29,9 +29,8 @@ Heroku Link:  https://floating-mesa-83747.herokuapp.com/
 - Realtime sending alerts one day prior to an upcoming trip
 
 ## Screenshots:
-![screenshot #1](/public/images/travel_bug_login.png?raw=true "travel_bug_login")
+![screenshot #1](/public/images/TravelBug_login.png?raw=true "travel_bug_login")
 
-![screenshot #2](/public/images/travel_bug_index.png?raw=true "travel_bug_index")
 
 
 
